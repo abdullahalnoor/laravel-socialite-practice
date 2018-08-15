@@ -41,6 +41,18 @@ return [
         'redirect' => "http://socialite-laravel.com/login/google/callback", 
     ],
 
+    'facebook' => [
+        'client_id' => "411198016074872",      
+        'client_secret' => "8dc3b0d1510b3b59f4e8830bca0a1e26", 
+        'redirect' => "http://socialite-laravel.com/login/google/callback", 
+    ],
+
+    'github' => [
+        'client_id' => "28f96d25df7f8148b76a",      
+        'client_secret' => "dc79247c3be704e393107ba049dbd6dbce70735c", 
+        'redirect' => "http://socialite-laravel.com/login/github/callback", 
+    ],
+
     // 'facebook' => [
     //     'client_id' => env('FACEBOOK_CLIENT_ID'),      
     //     'client_secret' => env('FACEBOOK_CLIENT_SECRET'), 

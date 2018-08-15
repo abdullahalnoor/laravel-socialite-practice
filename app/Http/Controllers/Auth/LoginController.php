@@ -45,9 +45,9 @@ class LoginController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function redirectToProvider()
+    public function redirectToProvider($service)
     {
-        return Socialite::driver('google')->redirect();
+        return Socialite::driver($service)->redirect();
     }
 
     /**
@@ -55,16 +55,27 @@ class LoginController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function handleProviderCallback()
+    public function handleProviderCallback($service)
     {
-       $google =  Socialite::driver('google')->stateless()->user();
-
-        $user = new User();
-
-        $user->name = $google->name;
-        $user->email = $google->email;
-        $user->password = bcrypt('123456');
-        $user->save();
+        if($service == 'google'){
+            $socialite =  Socialite::driver($service)->stateless()->user();
+        }else{
+            $socialite =  Socialite::driver($service)->user();
+        }
+        // return $google->name;
+        $userExist = User::where('email',$socialite->getEmail())->first();
+        if($userExist){
+            Auth::login($userExist);
+            return redirect()->route('home');
+        }else{
+            $user = new User();
+            $user->name = $socialite->getName();
+            $user->email = $socialite->getEmail();
+            $user->password = bcrypt('123456');
+            $user->save();
+            Auth::login($user);
+            return redirect()->route('home');
+        }
     }
 
 
