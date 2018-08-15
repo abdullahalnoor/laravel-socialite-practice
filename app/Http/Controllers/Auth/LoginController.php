@@ -57,9 +57,14 @@ class LoginController extends Controller
      */
     public function handleProviderCallback()
     {
-       $user =  Socialite::driver('google')->stateless()->user();
+       $google =  Socialite::driver('google')->stateless()->user();
 
-        return $user->email;
+        $user = new User();
+
+        $user->name = $google->name;
+        $user->email = $google->email;
+        $user->password = bcrypt('123456');
+        $user->save();
     }
 
 
