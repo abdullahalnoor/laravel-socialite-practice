@@ -84,11 +84,10 @@
             </div>
 
             <div class="links">
-                <a href="https://laravel.com/docs">facebook</a>
-                <a href="https://laracasts.com">Twitter</a>
-                <a href="https://laravel-news.com">Google</a>
-                <a href="https://forge.laravel.com">Github</a>
-                <a href="https://github.com/laravel/laravel">GitHub</a>
+                <a href="{{route('social.login',['service'=> 'facebook'])}}">facebook</a>
+                <a href="{{route('social.login',['service'=> 'twitter'])}}">Twitter</a>
+                <a href="{{route('social.login',['service'=> 'google'])}}">Google</a>
+                <a href="{{route('social.login',['service'=> 'github'])}}">Github</a>
             </div>
         </div>
     </div>
