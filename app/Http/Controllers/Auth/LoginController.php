@@ -41,7 +41,7 @@ class LoginController extends Controller
     }
 
       /**
-     * Redirect the user to the GitHub authentication page.
+     * Redirect the user to the Socialite authentication page.
      *
      * @return \Illuminate\Http\Response
      */

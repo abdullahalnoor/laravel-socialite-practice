@@ -44,7 +44,7 @@ return [
     'facebook' => [
         'client_id' => "411198016074872",      
         'client_secret' => "8dc3b0d1510b3b59f4e8830bca0a1e26", 
-        'redirect' => "http://socialite-laravel.com/login/google/callback", 
+        'redirect' => "http://socialite-laravel.com/login/facebook/callback", 
     ],
 
     'github' => [
